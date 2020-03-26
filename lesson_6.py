@@ -11,12 +11,12 @@ class admin_block_admin_access(unittest.TestCase):
         driver.get("http://opencart.loc")
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".collapse.navbar-collapse")))
-        driver.find_element_by_css_selector('.row div:nth-child(3) .product-thumb .button-group').click()
+        click_on_desktops= driver.find_element_by_css_selector('.container #menu div:nth-child(2) .nav li:nth-child(1) ').click()
         time.sleep(1)
-        click_on_camera =  driver.find_element_by_css_selector('.nav.navbar-nav li:nth-child(7) ').click()
+        click_on_ashowalldesktops= driver.find_element_by_css_selector('.dropdown.open .dropdown-menu .see-all ').click()
         time.sleep(1)
-        add_to_card = driver.find_element_by_css_selector('#content .product-layout:nth-child(1) button:nth-child(1)').click()
-        time.sleep(1)
+        assert 'Example of category description text' in driver.find_element_by_css_selector('#content .row .col-sm-10 ').text
+
     def tearDown(self):
         self.driver.close()
 if __name__ == "__main__":

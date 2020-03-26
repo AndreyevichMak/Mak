@@ -25,3 +25,7 @@ class admin_block_admin_access(unittest.TestCase):
         time.sleep(1)
         click_on_next_button = driver.find_element_by_css_selector("button.mfp-arrow-right").click()
         time.sleep(1)
+    def tearDown(self):
+        self.driver.close()
+if __name__ == "__main__":
+    unittest.main()

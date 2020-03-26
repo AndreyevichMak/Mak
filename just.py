@@ -19,6 +19,9 @@ class admin_block_admin_access(unittest.TestCase):
         click_on_navbar_desctop = driver.find_element_by_css_selector(".navbar .collapse.navbar-collapse li:nth-child(1)").click()
         click_on_navbar_dropdown_menu_PC0=driver.find_element_by_css_selector(".navbar .dropdown li:nth-child(2)").click()
         #print(driver.find_element_by_css_selector("product-category p").text)
-
+    def tearDown(self):
+        self.driver.close()
+if __name__ == "__main__":
+    unittest.main()
 
 

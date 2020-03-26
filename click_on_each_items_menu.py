@@ -38,6 +38,9 @@ class admin_block_admin_access(unittest.TestCase):
         click_on_navbar_dropdown_menu_PC0 = driver.find_element_by_css_selector(".navbar .dropdown li:nth-child(1)").click()
         time.sleep(1)
         assert "There are no products to list in this category." in driver.find_element_by_css_selector("#content p").text
-
+    def tearDown(self):
+        self.driver.close()
+if __name__ == "__main__":
+    unittest.main()
 
 

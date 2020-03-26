@@ -23,4 +23,8 @@ class admin_block_admin_access(unittest.TestCase):
         time.sleep(1)
         click_on_button_search = driver.find_element_by_css_selector(".col-sm-12 .btn.btn-primary").click()
         time.sleep(3)
-        #assert "Your shopping cart is empty!" in driver.find_element_by_css_selector("p").text
+    def tearDown(self):
+        self.driver.close()
+if __name__ == "__main__":
+    unittest.main()
+
