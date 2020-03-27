@@ -11,11 +11,18 @@ class admin_block_admin_access(unittest.TestCase):
         driver.get("http://opencart.loc")
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".collapse.navbar-collapse")))
-        click_on_desktops= driver.find_element_by_css_selector('.container #menu div:nth-child(2) .nav li:nth-child(1) ').click()
-        time.sleep(1)
-        click_on_ashowalldesktops= driver.find_element_by_css_selector('.dropdown.open .dropdown-menu .see-all ').click()
-        time.sleep(1)
+
+        self.click_on_desktops_all_desc(driver)
+
         assert 'Example of category description text' in driver.find_element_by_css_selector('#content .row .col-sm-10 ').text
+
+    def click_on_desktops_all_desc(self, driver):
+        click_on_desktops = driver.find_element_by_css_selector(
+            '.container #menu div:nth-child(2) .nav li:nth-child(1) ').click()
+        time.sleep(1)
+        click_on_showalldesktops = driver.find_element_by_css_selector(
+            '.dropdown.open .dropdown-menu .see-all ').click()
+        time.sleep(1)
 
     def tearDown(self):
         self.driver.close()

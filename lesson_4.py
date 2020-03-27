@@ -11,9 +11,16 @@ class admin_block_admin_access(unittest.TestCase):
         driver.get("http://opencart.loc")
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".collapse.navbar-collapse")))
-        click_on_shoppingcart = driver.find_element_by_css_selector('#top .container #top-links .list-inline li:nth-child(4)').click()
-        time.sleep(1)
+
+        self.click_on_shoppingcart(driver)
+
         assert 'Your shopping cart is empty!' in driver.find_element_by_css_selector('#error-not-found .row #content').text
+
+    def click_on_shoppingcart(self, driver):
+        click_on_shoppingcart = driver.find_element_by_css_selector(
+            '#top .container #top-links .list-inline li:nth-child(4)').click()
+        time.sleep(1)
+
     def tearDown(self):
         self.driver.close()
 if __name__ == "__main__":

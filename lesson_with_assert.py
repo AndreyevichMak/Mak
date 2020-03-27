@@ -11,8 +11,16 @@ class admin_block_admin_access(unittest.TestCase):
         driver.get("http://opencart.loc")
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".collapse.navbar-collapse")))
-        click_on_components = driver.find_element_by_xpath('*//nav//a[contains(text(), "Components")]').click()
-        time.sleep(2)
+
+        self.click_on_components(driver)
         assert "open" in driver.find_element_by_css_selector(".navbar-nav .dropdown:nth-child(3)").get_attribute("class")
-        open_monitors = driver.find_element_by_css_selector(".navbar-nav .dropdown.open li:nth-child(3)").click()
+
+        self.open_monitors(driver)
         assert "There are no products to list in this category." in driver.find_element_by_css_selector('#content p').text
+
+    def open_monitors(self, driver):
+        open_monitors = driver.find_element_by_css_selector(".navbar-nav .dropdown.open li:nth-child(3)").click()
+
+    def click_on_components(self, driver):
+        click_on_components = driver.find_element_by_xpath('*//nav//a[contains(text(), "Components")]').click()
+        time.sleep(1)

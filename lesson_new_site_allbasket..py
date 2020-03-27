@@ -11,11 +11,13 @@ class admin_block_admin_access(unittest.TestCase):
         driver.get("https://allbasketball.org/")
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_all_elements_located((By.CSS_SELECTOR,'#login-modal')))
-        click_on_players = driver.find_element_by_css_selector('.header-menu .navbar .container .collapse .nav.navbar-nav .dropdown:nth-child(8)').click()
-        time.sleep(5)
 
+        self.click_on_players(driver)
 
-
+    def click_on_players(self, driver):
+        click_on_players = driver.find_element_by_css_selector(
+            '.header-menu .navbar .container .collapse .nav.navbar-nav .dropdown:nth-child(8)').click()
+        time.sleep(1)
 
     def tearDown(self):
         self.driver.close()
