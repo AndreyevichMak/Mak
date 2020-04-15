@@ -19,7 +19,7 @@ class admin_block_admin_access(unittest.TestCase):
     def add_to_card(self, driver):
         add_to_card = driver.find_element_by_css_selector(
             '#content .product-layout:nth-child(1) button:nth-child(1)').click()
-        time.sleep(1)
+        time.sleep(5)
 
     def click_on_camera(self, driver):
         click_on_camera = driver.find_element_by_css_selector('.nav.navbar-nav li:nth-child(7) ').click()
